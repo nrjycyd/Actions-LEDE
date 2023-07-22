@@ -29,7 +29,7 @@ jobs:
 
     steps:
     - name: Checkout
-      uses: actions/checkout@master
+      uses: actions/checkout@v2
 
     - name: Initialization environment
       env:
@@ -80,7 +80,7 @@ jobs:
         make -j$(nproc) || make -j1 V=s
 
     - name : Upload firmware
-      uses: actions/upload-artifact@master
+      uses: actions/upload-artifact@v2
       with:
         name: OpenWrt_firmware
         path: openwrt/bin
