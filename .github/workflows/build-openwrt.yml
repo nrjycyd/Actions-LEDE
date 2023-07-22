@@ -50,11 +50,15 @@ jobs:
         git clone --depth 1 $REPO_URL -b $REPO_BRANCH openwrt
         cd openwrt
         
-    - name: Configuration Customization
+    - name: Load custom feeds
       run: |
         [ -e $FEEDS_CONF ] && mv $FEEDS_CONF openwrt/feeds.conf.default
         chmod +x $DIY_P1_SH
-        [ -e files ] && mv files openwrt/files
+        cd openwrt
+        
+    - name: Load custom configuration
+      run: |
+        [ -e files ] && mv files openwrt/file
         [ -e $CONFIG_FILE ] && mv $CONFIG_FILE openwrt/.config
         chmod +x $DIY_P2_SH
         cd openwrt && make defconfig
