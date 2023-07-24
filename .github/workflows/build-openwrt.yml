@@ -53,7 +53,7 @@ jobs:
       run: |
         cd openwrt
         [ -e $FEEDS_CONF ] && mv $FEEDS_CONF openwrt/feeds.conf.default
-        chmod +x $DIY_P1_SH
+        chmod +x $DIY_P1_SH && ./$DIY_P1_SH
 
     - name: Update & Install feeds
       working-directory: ./openwrt
