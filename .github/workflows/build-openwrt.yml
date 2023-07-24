@@ -51,7 +51,6 @@ jobs:
         
     - name: Load custom feeds
       run: |
-        cd openwrt
         chmod +x $DIY_P1_SH && ./$DIY_P1_SH
 
     - name: Update & Install feeds
