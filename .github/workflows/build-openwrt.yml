@@ -52,9 +52,8 @@ jobs:
         
     - name: Load custom feeds
       run: |
-        [ -e $FEEDS_CONF ] && mv $FEEDS_CONF openwrt/feeds.conf.default
+        #[ -e $FEEDS_CONF ] && mv $FEEDS_CONF openwrt/feeds.conf.default
         chmod +x $DIY_P1_SH && ./$DIY_P1_SH
-        cd openwrt
 
     - name: Update & Install feeds
       working-directory: ./openwrt
@@ -68,7 +67,6 @@ jobs:
         [ -e files ] && mv files openwrt/file
         [ -e $CONFIG_FILE ] && mv $CONFIG_FILE openwrt/.config
         chmod +x $DIY_P2_SH && ./$DIY_P2_SH
-        cd openwrt
         
     - name: Download package
       working-directory: ./openwrt
