@@ -93,5 +93,5 @@ jobs:
     - name : Upload firmware
       uses: actions/upload-artifact@v2
       with:
-        name: OpenWrt_firmware
+        name: LEDE_firmware
         path: openwrt/bin
