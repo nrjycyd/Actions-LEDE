@@ -94,4 +94,4 @@ jobs:
       uses: actions/upload-artifact@v2
       with:
         name: LEDE_firmware
-        path: openwrt/bin
+        path: openwrt/bin/targets/
