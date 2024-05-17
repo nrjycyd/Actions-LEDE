@@ -15,7 +15,8 @@ sed -i 's/^#\(.*helloworld\)/\1/' feeds.conf.default
 
 # Switch 23.05 luci
 # sed -i 's/^\(.*luci\)/#\1/' feeds.conf.default
-# sed -i 's/^#\(src-git luci https:\/\/github\.com\/coolsnowwolf\/luci\.git;openwrt-23\.05\)/\1/' feeds.conf.default
+# sed -i 's/^#\(.*openwrt-23\.05\)/\1/' feeds.conf.default
+# sed -i 's/^#\(.*luci\)/\1/' feeds.conf.default
 
 # Add a feed source
 # echo "src-git ssrplus https://github.com/fw876/helloworld.git;main" >> "feeds.conf.default"
