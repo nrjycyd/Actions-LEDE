@@ -50,6 +50,22 @@ jobs:
         sudo mkdir -p /workdir
         sudo chown $USER:$GROUPS /workdir
 
+    - name: Upgrade to GCC 13
+      run: |
+        # Add the Ubuntu Toolchain PPA repository for GCC 13
+        sudo add-apt-repository ppa:ubuntu-toolchain-r/test -y
+        sudo apt-get -qq update
+        # Install GCC 13 and G++ 13
+        sudo apt-get install -y gcc-13 g++-13
+        # Set GCC 13 as the default compiler
+        sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-13 100
+        sudo update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-13 100
+        # Configure the alternatives system to use GCC 13 by default
+        sudo update-alternatives --config gcc
+        sudo update-alternatives --config g++
+        # Check if GCC 13 is installed and set correctly
+        gcc --version
+    
     - name: Clone source code
       working-directory: /workdir
       run: |
